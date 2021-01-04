@@ -10,14 +10,14 @@
   </tr>
   <tr>
 	  <th>follows</th>
-	  <th><%= user.name %></th>
+	  <th><%= user.following.count %></th>
   </tr>
   <tr>
 	  <th>followers</th>
 	  <th><%= user.name %></th>
   </tr>
    <tr>
-	  <th>フォローボタン</th>
+	  <th><%= render "users/follow_button",user: user %></th>
   </tr>
 
 </table>
