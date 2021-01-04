@@ -5,6 +5,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :books
+  attachment :profile_image, destroy: false
+  validates :name, length: {maximum: 20, minimum: 2}, uniqueness: true
+  validates :introduction, length: {maximum: 50}
   has_many :favorites, dependent: :destroy
   has_many :post_comments, dependent: :destroy
 
@@ -13,10 +16,6 @@ class User < ApplicationRecord
   has_many :reverse_of_relationships, class_name: 'Relationship', foreign_key: 'follow_id'
   has_many :followers, through: :reverse_of_relationships, source: :user
 
-  attachment :profile_image, destroy: false
-
-  validates :name, length: {maximum: 20, minimum: 2}, uniqueness: true
-  validates :introduction, length: {maximum: 50}
 
   def follow(other_user)
     unless self == other_user
