@@ -23,6 +23,6 @@ class ApplicationController < ActionController::Base
       :prefecture_name,
       :address_city,
       :address_street])
-    devise_parameter_sanitizer.permit(:sign_in, keys: [:name])
-  end
+      devise_parameter_sanitizer.permit(:sign_in, keys: [:name])
+    end
 end
