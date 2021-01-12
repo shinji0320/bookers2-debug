@@ -10,7 +10,14 @@
           <%= link_to 'Log in',new_user_session_path, class: "btn btn-info btn-sm btn-block mb-3 sign_in" %>
         </div>
         <div class="row">
-          <%= link_to 'Sign Up',new_user_registration_path, class: "btn btn-success btn-sm btn-block sign_up" %>
+          <%= link_to 'Sign Up',new_user_registration_path, class: "btn btn-success btn-sm mb-3 btn-block sign_up" %>
+        </div>
+        <div class="row">
+          <%= form_with(model: User.new, url:new_user_session_path) do |f| %>
+            <%= f.hidden_field :name, value: "test1" %>
+            <%= f.hidden_field :password, value: "111111" %>
+            <%= f.submit "test1", class:"btn btn-success btn-sm mb-3 btn-block test1"%>
+          <% end %>
         </div>
       </div>
     </div>

@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'search/search'
+  resources :testsessions, only: [:create]
   devise_for :users
   resources :users, only: [:show,:index,:edit,:update,:create] do
     resource :relationships, only: [:create, :destroy]
@@ -15,4 +15,5 @@ Rails.application.routes.draw do
   root 'homes#top'
   get 'home/about' => 'homes#about'
   get '/search', to: 'search#search'
+  get 'search/search'
 end
